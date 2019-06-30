@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.bitcamp.web.DemoApplication",
+            "projectName": "web"
+        }
+    ]
+}
