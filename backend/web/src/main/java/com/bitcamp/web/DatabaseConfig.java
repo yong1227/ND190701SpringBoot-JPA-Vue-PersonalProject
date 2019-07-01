@@ -15,8 +15,6 @@ public class DatabaseConfig {
     public ServletRegistrationBean h2sRegistrationBean(){
         ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
         registration.addUrlMappings("/console/*");
-        return registration;
-        
+        return registration;   
     }
-    
 }
