@@ -12,6 +12,6 @@ import lombok.Data;
 @Data
 @Lazy
 public class ChallengesDTO {
-    private String routinName,
-                    challengeName;
+    private String routinName, challengeName;
+    private int set, count;
 }

@@ -30,11 +30,16 @@ public class Challenges implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String routinName;
+    private int set;
+    private int count; 
     private String challengeName;
 
+
     @Builder
-    private Challenges(String routinName, String challengeName){
+    private Challenges(String routinName, int set, int count, String challengeName ){
         this.routinName = routinName;
+        this.set = set;
+        this.count = count;
         this.challengeName = challengeName;
     }
 }

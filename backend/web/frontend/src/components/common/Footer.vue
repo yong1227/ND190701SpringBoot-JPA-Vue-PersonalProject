@@ -12,9 +12,9 @@
           <h5 class="title">연락</h5>
           <ul>
             <li class="list-unstyled"><a href="#!">블로그</a></li>
-            <li class="list-unstyled"><a href="#!">https://thankstory.tistory.com/</a></li>
+            <li class="list-unstyled"><a href="https://thankstory.tistory.com">https://thankstory.tistory.com</a></li>
             <li class="list-unstyled"><a href="#!">Github 주소</a></li>
-            <li class="list-unstyled"><a href="#!">https://github.com/yong1227/bit190628-spring-boot-jpa-vue-separation</a></li>
+            <li class="list-unstyled"><a href="https://github.com/yong1227/ND190701SpringBoot-JPA-Vue-PersonalProject">https://github.com/yong1227/ND190701SpringBoot-JPA-Vue-PersonalProject</a></li>
           </ul>
         </mdb-col>
       </mdb-row>

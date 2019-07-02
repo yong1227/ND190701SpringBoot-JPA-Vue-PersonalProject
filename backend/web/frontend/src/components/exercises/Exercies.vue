@@ -1,7 +1,7 @@
 <template>
 <div>
   <Nav></Nav>
-  <h2 align="center">3분할 트레이닝</h2>
+  <h2 align="center">해당 운동 루틴</h2>
   <div>
     <b-table hover :items="items"></b-table>
     <div align="right">
