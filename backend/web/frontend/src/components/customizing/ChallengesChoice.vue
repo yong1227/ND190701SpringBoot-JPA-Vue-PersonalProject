@@ -3,7 +3,7 @@
     <Nav></Nav>
     <h2 align="center">챌린지 선택</h2>
     <b-list-group align="center">
-      <b-list-group-item to="/Exercies">{{this.challengeName}}</b-list-group-item>
+      <b-list-group-item to="/Exercies"></b-list-group-item>
       
     </b-list-group>
     <Footer></Footer>
@@ -22,9 +22,21 @@ export default {
   data(){
     return{
       context : 'http://localhost:9000/challenges',
-      challengeName: this.challengeName
+      
     }
   },
+  //챌린지 이름만 다 뿌려주기
+  created: {
+    findAll(){
+       axios.get(`${this.context}/findAll`)
+       .then(res=>{
+         alert('findAll 진입')
+       })
+       .catch(e=>{
+         alert('error')
+       })
+    }
+  }
   
   
 };
