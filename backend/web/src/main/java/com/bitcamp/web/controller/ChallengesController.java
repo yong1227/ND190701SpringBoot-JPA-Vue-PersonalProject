@@ -1,5 +1,6 @@
 package com.bitcamp.web.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,10 +13,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 /**
  * ChallengesController
@@ -59,5 +65,46 @@ public class ChallengesController {
 
         return map;
     }
-    //챌린지 값 뿌려주기
+
+    //findAll
+    @GetMapping("")
+    public List<ChallengesDTO> findAll() {
+        Iterable<Challenges> entities = challengesRepository.findAll();
+        List<ChallengesDTO> list = new ArrayList<>();
+
+        for(Challenges ch : entities){
+            challengesDTO = modelMapper.map(ch, ChallengesDTO.class);
+            list.add(challengesDTO);
+        }
+        System.out.println(list);
+        return list;
+    }
+
+    //find By Id
+    @GetMapping("/find/{id}")
+    public ChallengesDTO findById(@PathVariable Long id){
+        return modelMapper.map(challengesRepository.findById(id), ChallengesDTO.class);
+    }
+
+    //update By Id
+    @PutMapping("/{id}")
+    public HashMap<String,String> update(@PathVariable String id, @RequestBody ChallengesDTO dto) {
+    
+        HashMap<String, String> map = new HashMap<>();
+
+        Challenges entity = challengesRepository.findById(Long.parseLong(id)).get();
+        entity.setRoutineName1(dto.getRoutineName1());
+        entity.setRoutineName2(dto.getRoutineName2());
+        entity.setRoutineName3(dto.getRoutineName3());
+        entity.setRoutineName4(dto.getRoutineName4());
+        entity.setRoutineName5(dto.getRoutineName5());
+        challengesRepository.save(entity);
+        map.put("result ","success");
+        return map;
+    }
+    
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
+        challengesRepository.deleteById(Long.parseLong(id));
+    }
 }

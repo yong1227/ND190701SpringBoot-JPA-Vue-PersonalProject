@@ -33,7 +33,7 @@ public class Challenges implements Serializable{
     private static final long serialVrsionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "routine_name1")
     private String routineName1;
