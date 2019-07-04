@@ -71,10 +71,11 @@ import axios from 'axios'
                     JSON.stringify(data),
                     {headers: headers})
               .then(res=>{
-                
+                alert('작성 성공')
               })
               .catch(e=>{
                 alert('ERROR')
+                this.$router.link(-1)
               })
       }
     }

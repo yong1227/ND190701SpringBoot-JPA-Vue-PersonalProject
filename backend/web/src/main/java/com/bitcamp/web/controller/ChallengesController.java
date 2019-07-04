@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
-import com.bitcamp.web.common.lambda.ISupplier;
 import com.bitcamp.web.domain.ChallengesDTO;
 import com.bitcamp.web.entities.Challenges;
 import com.bitcamp.web.repositories.ChallengesRepository;
