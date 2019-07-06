@@ -10,6 +10,7 @@
         <b-navbar-nav id="menu">
           <b-nav-item to="/ChallengesInput">만들기</b-nav-item>
           <b-nav-item to="/ChallengesChoice">선택</b-nav-item>
+          <b-nav-item to="/Exercies">운동 디테일</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

@@ -17,7 +17,4 @@ public class Printer implements IConsumer{
         Consumer <String> c = System.out :: println;
         c.accept((String)o);
     }
-
-
-    
 }
