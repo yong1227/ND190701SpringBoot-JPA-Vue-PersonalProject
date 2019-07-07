@@ -51,7 +51,8 @@ public class Challenges implements Serializable{
 
 
     @Builder
-    private Challenges(String routineName1,String routineName2,String routineName3,String routineName4,String routineName5, String challengeName ){
+    private Challenges(Long id,String routineName1,String routineName2,String routineName3,String routineName4,String routineName5, String challengeName ){
+        this.id = id;
         this.routineName1 = routineName1;
         this.routineName2 = routineName2;
         this.routineName3 = routineName3;

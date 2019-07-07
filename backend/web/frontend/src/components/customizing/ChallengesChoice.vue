@@ -1,13 +1,14 @@
 <template>
 <div>
 <Nav></Nav>
-  <div>
+  <div align="center">
     <h2>챌린지 선택</h2>
-    <mdb-tbl responsive>
-      <mdb-tbl-body>
+    <mdb-tbl responsive >
+      <mdb-tbl-body >
         <tr v-for="item in list" :key="item.id">
-          <td @click="exercies">{{item.challengeName}}</td> 
-          <!-- <td @click="exercies">{{item.routineName1}}</td>  -->
+          <!-- <td @click="exercies">{{item.id}}</td> -->
+          <td @click="exercies(item.id)">{{item.challengeName}}</td>
+          <td><b-button variant="success" @click="deleteChallenge(item.id)">삭제</b-button></td> 
         </tr>
       </mdb-tbl-body>
     </mdb-tbl>
@@ -34,32 +35,37 @@ export default {
       list:[]
     }
   },
+
   //챌린지 리스트 받아오기
   created(){
     axios.get(`${this.context}/findAll`)
     .then(res=>{
       this.list = res.data;
+
     })
     .catch(e=>{
       alert('error')
       this.$router.link(-1)
     })
   },
-  // store(item){
-    //   store.state.routineName1 = item.routineName1
-  //   store.state.routineName2 = item.routineName2
-  //   store.state.routineName3 = item.routineName3
-  //   store.state.routineName4 = item.routineName4
-  //   store.state.routineName5 = item.routineName5
-  //   this.$router.push('/Exercies')
-  // },
-  methods:{
-    exercies(e){
-      //exercies로 이동
-      this.$store.state.routineName1 = this.routineName1;
+
+  methods: {
+    exercies(id){
+      this.$store.state.id = id;
       this.$router.push('/Exercies')
+    },
+    deleteChallenge(id){
+      axios
+        .delete(`${this.context}/delete/`+id)
+        .then(res=>{
+          alert('삭제 성공')
+          axios.get(`${this.context}/findAll`).then(res=>{this.list = res.data}).catch(e=>{aler('refind error')})
+        })
+        .catch(e=>{
+          alert('delete axios error')
+        })
     }
-  }
+  },
 };
 </script>
 

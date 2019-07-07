@@ -19,10 +19,12 @@ import lombok.ToString;
 @ToString
 @Lazy
 public class ChallengesDTO {
+    private Long id;
     private String routineName1,routineName2,routineName3,routineName4,routineName5,challengeName;
 
     public Challenges toEntity(){
         return Challenges.builder()
+                            .id(id)
                             .routineName1(routineName1)
                             .routineName2(routineName2)
                             .routineName3(routineName3)

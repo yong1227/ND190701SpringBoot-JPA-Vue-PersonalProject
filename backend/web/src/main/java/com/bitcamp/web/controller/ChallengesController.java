@@ -49,7 +49,6 @@ public class ChallengesController {
     // form insert
     @PostMapping("")
     public HashMap<String,String> save(@RequestBody ChallengesDTO challengesDTO) {
-        System.out.println("save로 진입");
         HashMap<String ,String> map = new HashMap<>();
 
         Challenges challenges  = new Challenges();
@@ -60,7 +59,6 @@ public class ChallengesController {
         challenges.setRoutineName4(challengesDTO.getRoutineName4());
         challenges.setRoutineName5(challengesDTO.getRoutineName5());
 
-        System.out.println("엔티티로 바뀐 정보 : " + challenges.toString());
         repo.save(challenges);
         map.put("result", "SUCCESS");
 
@@ -77,26 +75,22 @@ public class ChallengesController {
             dto = mapper.map(ch, ChallengesDTO.class);
             list.add(dto);
         }
-        System.out.println(list);
         return list;
     }
 
     //find By Id
     @GetMapping("/find/{id}")
-    public ChallengesDTO findById(@PathVariable String id){
-        System.out.println("findById 진입");
-        Challenges entity = repo.findById(Long.parseLong(id))
+    public ChallengesDTO findById(@PathVariable Long id){
+        Challenges entity = repo.findById(id)
                                     .orElseThrow(EntityNotFoundException::new);
-        System.out.println(">>>" + entity.toString());
         ChallengesDTO dto = mapper.map(entity, ChallengesDTO.class);
-        System.out.println("조회 결과: "+entity.toString());
         return dto;
     }
     
     //update By Id
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public HashMap<String,String> update(@PathVariable String id, @RequestBody ChallengesDTO dto) {
-    
+
         HashMap<String, String> map = new HashMap<>();
 
         Challenges entity = repo.findById(Long.parseLong(id)).get();
@@ -110,8 +104,10 @@ public class ChallengesController {
         return map;
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    @DeleteMapping(path = "/delete/{id}")
+    public void delete(@PathVariable String id){
+        System.out.println("delete 진입");
         repo.deleteById(Long.parseLong(id));
+        System.out.println("delete 성공");
     }
 }

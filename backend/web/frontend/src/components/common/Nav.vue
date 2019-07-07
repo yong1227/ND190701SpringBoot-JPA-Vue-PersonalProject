@@ -8,9 +8,9 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav id="menu">
-          <b-nav-item to="/ChallengesInput">만들기</b-nav-item>
-          <b-nav-item to="/ChallengesChoice">선택</b-nav-item>
-          <b-nav-item to="/Exercies">운동 디테일</b-nav-item>
+          <b-nav-item to="/ChallengesInput">나만의 챌린지 만들기</b-nav-item>
+          <b-nav-item to="/ChallengesChoice">챌린지 선택</b-nav-item>
+        
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

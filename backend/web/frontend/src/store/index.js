@@ -6,6 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 
   state:{
+    list: '',
+    id:'',
     routineName1: '',
     routineName2: '',
     routineName3: '',
